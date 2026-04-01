@@ -46,7 +46,7 @@ func NewPasswordManager(filepath string) *PasswordManager {
 }
 
 //метод
-func(pm *PasswordManager)SetMasterManager(masterPassword string) error{
+func(pm *PasswordManager)SetMasterPassword(masterPassword string) error{
 	if len(masterPassword) < 8{
 		return fmt.Errorf("password is too weak")
 	}
