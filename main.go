@@ -88,11 +88,12 @@ func (pm *PasswordManager)GetPassword(name string) (Password, error){
 //список паролей
 func (pm *PasswordManager)ListPasswords()[]Password{
 	passwords := []Password{}
-	if len(passwords) == 0{
-		return  passwords
-	}
+	
 	for _, p := range pm.passwords{
 		passwords = append(passwords, p)
+	}
+	if len(passwords) == 0{
+		return passwords
 	}
 	return passwords
 }
