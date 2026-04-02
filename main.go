@@ -75,15 +75,13 @@ func (pm *PasswordManager)SavePassword(name, value, category string) error{
 //получение пароля
 func (pm *PasswordManager)GetPassword(name string) (Password, error){
 	if !pm.isInitialized{
-		return NewPassword("","",""),
-		fmt.Errorf("password manager does noi initialized")
+		return NewPassword("","",""), fmt.Errorf("password manager does noi initialized")
 	}
 
 	if password, ok := pm.passwords[name];ok{
 		return NewPassword(name, password.Value, password.Category), nil
 	}else{
-		return NewPassword("","",""),
-		fmt.Errorf("password not found")
+		return NewPassword("","",""), fmt.Errorf("password not found")
 	}
 }
 
