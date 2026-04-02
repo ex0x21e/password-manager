@@ -91,7 +91,7 @@ func (pm *PasswordManager)ListPasswords()[]Password{
 	if len(passwords) == 0{
 		return  passwords
 	}
-	for _, p := range passwords{
+	for _, p := range pm.passwords{
 		passwords = append(passwords, p)
 	}
 	return passwords
