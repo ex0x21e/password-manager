@@ -57,6 +57,21 @@ func(pm *PasswordManager)SetMasterPassword(masterPassword string) error{
 	return nil
 }
 
+//добавление новых паролей в хранилище 
+func (pm *PasswordManager)SavePassword(name, value, category string) error{
+	if !pm.isInitialized{
+		return fmt.Errorf("password manager is not initialized")
+	}
+
+	if _, ok := pm.passwords[name]; ok{
+		return fmt.Errorf("password already exists")
+	}
+
+	password := NewPassword(name, value, category)
+	pm.passwords[name] = password
+	return nil
+}
+
 func main() {
 	password := NewPassword("github.com", "password123", "development")
 
