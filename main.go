@@ -85,6 +85,18 @@ func (pm *PasswordManager)GetPassword(name string) (Password, error){
 	}
 }
 
+//список паролей
+func (pm *PasswordManager)ListPasswords()[]Password{
+	passwords := []Password{}
+	if len(passwords) == 0{
+		return  passwords
+	}
+	for _, p := range passwords{
+		passwords = append(passwords, p)
+	}
+	return passwords
+}
+
 func main() {
 	password := NewPassword("github.com", "password123", "development")
 
